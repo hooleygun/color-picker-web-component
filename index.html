@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Color Picker Demo</title>
+  <link rel="stylesheet" href="color-picker.css">
+  <style> body { padding: 40px; font-family: sans-serif; } </style>
+</head>
+<body>
+
+  <h2>Color Picker с MVP API</h2>
+  <div class="my-color-picker"></div>
+
+  <script src="color-picker.js"></script>
+  <script>
+    const colorPicker = new ColorPicker('.my-color-picker', {
+      initialColor: '#ff5500', // Начальный цвет
+      showAlpha: true,         // Показывать ли ползунок прозрачности (по умолчанию true)
+      position: 'auto',        // Позиционирование popup ('auto', 'top-left', 'bottom-center' и т.д.)
+      format: 'hsla'           // Формат вывода цвета ('auto', 'hex', 'rgb', 'rgba', 'hsl', 'hsla')
+    });
+  </script>
+
+</body>
+</html>

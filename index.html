@@ -1,25 +1,246 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <title>Color Picker Demo</title>
-  <link rel="stylesheet" href="color-picker.css">
-  <style> body { padding: 40px; font-family: sans-serif; } </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo ColorPicker</title>
+    <link rel="stylesheet" href="color-picker.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+        .example {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        .example-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .example-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .example-code {
+            font-family: monospace;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .picker-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .color-display {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .controls button {
+            padding: 8px 12px;
+            margin: 5px 0;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .controls button:hover {
+            background-color: #2980b9;
+        }
+        .controls input {
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
 
-  <h2>Color Picker с MVP API</h2>
-  <div class="my-color-picker"></div>
+    <div class="demo-container">
+        <h1>Demo: ColorPicker</h1>
 
-  <script src="color-picker.js"></script>
-  <script>
-    const colorPicker = new ColorPicker('.my-color-picker', {
-      initialColor: '#ff5500', // Начальный цвет
-      showAlpha: true,         // Показывать ли ползунок прозрачности (по умолчанию true)
-      position: 'auto',        // Позиционирование popup ('auto', 'top-left', 'bottom-center' и т.д.)
-      format: 'hsla'           // Формат вывода цвета ('auto', 'hex', 'rgb', 'rgba', 'hsl', 'hsla')
-    });
-  </script>
+        <p>Этот пример демонстрирует возможности библиотеки ColorPicker. Ниже приведены различные способы её использования.</p>
+
+        <!-- Пример 1: Базовый -->
+        <div class="example">
+            <div class="example-header">
+                <div class="example-title">1. Базовый цветовой пикер</div>
+                <div class="example-code">new ColorPicker('#picker1', { initialColor: '#ff5500' })</div>
+            </div>
+            <div class="picker-row">
+                <div id="picker1"></div>
+            </div>
+        </div>
+
+        <!-- Пример 2: С альфа-каналом -->
+        <div class="example">
+            <div class="example-header">
+                <div class="example-title">2. С альфа-каналом</div>
+                <div class="example-code">new ColorPicker('#picker2', { initialColor: 'rgba(0, 128, 255, 0.7)', showAlpha: true })</div>
+            </div>
+            <div class="picker-row">
+                <div id="picker2"></div>
+            </div>
+        </div>
+
+        <!-- Пример 3: Фиксированное позиционирование -->
+        <div class="example">
+            <div class="example-header">
+                <div class="example-title">3. Позиционирование: сверху по центру</div>
+                <div class="example-code">new ColorPicker('#picker3', { initialColor: '#7bff00', position: 'top-center' })</div>
+            </div>
+            <div class="picker-row">
+                <div id="picker3"></div>
+            </div>
+        </div>
+
+        <!-- Пример 4: Формат отображения RGBA -->
+        <div class="example">
+            <div class="example-header">
+                <div class="example-title">4. Формат отображения: RGBA</div>
+                <div class="example-code">new ColorPicker('#picker4', { initialColor: 'hsla(120, 50%, 50%, 0.8)', format: 'rgba' })</div>
+            </div>
+            <div class="picker-row">
+                <div id="picker4"></div>
+            </div>
+        </div>
+
+        <!-- Пример 5: Управление из кода -->
+        <div class="example">
+            <div class="example-header">
+                <div class="example-title">5. Управление из кода</div>
+                <div class="example-code">См. кнопки управления</div>
+            </div>
+            <div class="picker-row">
+                <div id="picker5"></div>
+                <div class="color-display" id="display5"></div>
+            </div>
+            <div class="controls">
+                <button onclick="setRandomColor()">Случайный цвет</button>
+                <button onclick="setColorToBlue()">Синий</button>
+                <button onclick="logCurrentColor()">Показать цвет в консоли</button>
+                <input type="text" id="customColorInput" placeholder="Введите цвет (HEX, RGB...)" />
+                <button onclick="setCustomColor()">Установить цвет</button>
+            </div>
+        </div>
+
+        <!-- Пример 6: Использование span -->
+        <div class="example">
+            <div class="example-header">
+                <div class="example-title">6. Использование другого тега (span)</div>
+                <div class="example-code">new ColorPicker('#picker6')</div>
+            </div>
+            <div class="picker-row">
+                <span id="picker6"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="color-picker.js"></script>
+    <script>
+        // Инициализация пикеров
+        const picker1 = new ColorPicker('#picker1', { initialColor: '#ff5500' });
+        const picker2 = new ColorPicker('#picker2', { initialColor: 'rgba(0, 128, 255, 0.7)', showAlpha: true });
+        const picker3 = new ColorPicker('#picker3', { initialColor: '#7bff00', position: 'top-center' });
+        const picker4 = new ColorPicker('#picker4', { initialColor: 'hsla(120, 50%, 50%, 0.8)', format: 'rgba' });
+
+        const picker5 = new ColorPicker('#picker5', { initialColor: '#ffffff' });
+        const display5 = document.getElementById('display5');
+
+        // Обновляем цвет дисплея при изменении в picker5
+        // Note: Так как API удален, изменения в picker5 не вызывают внешних событий.
+        // Мы можем обновлять дисплей при открытии/закрытии или по кнопке.
+        // Для демонстрации добавим обновление при закрытии popup.
+        const originalClosePopup = picker5.closePopup;
+        picker5.closePopup = function() {
+            originalClosePopup.call(this);
+            updateDisplay5();
+        };
+
+        function updateDisplay5() {
+            if (display5 && picker5.color) {
+                 // Используем внутреннее состояние цвета
+                 const { r, g, b, a } = picker5.color;
+                 display5.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+            }
+        }
+        // Инициальное обновление
+        updateDisplay5();
+
+        const picker6 = new ColorPicker('#picker6', { initialColor: '#d2691e' });
+
+        // Функции управления для Примера 5
+        function setRandomColor() {
+            const randomHex = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+            picker5.setColor(picker5.parseColor(randomHex));
+            updateDisplay5(); // Обновляем дисплей вручную
+        }
+
+        function setColorToBlue() {
+            picker5.setColor(picker5.parseColor('#0000ff'));
+            updateDisplay5();
+        }
+
+        function logCurrentColor() {
+            console.log('Текущий цвет picker5 (внутреннее состояние):', picker5.color);
+            console.log('Текущий цвет picker5 (отображаемый формат):', picker5.textInput.value);
+        }
+
+        function setCustomColor() {
+            const input = document.getElementById('customColorInput');
+            const colorStr = input.value.trim();
+            if (colorStr) {
+                const parsed = picker5.parseColor(colorStr);
+                if (parsed) {
+                    picker5.setColor(parsed);
+                    updateDisplay5();
+                    input.value = ''; // Очищаем поле
+                } else {
+                    alert('Неверный формат цвета!');
+                }
+            }
+        }
+
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,250 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('/src/fonts/JetBrainsMono-2.304/fonts/webfonts/variable/JetBrainsMono.woff2') format('woff2 supports variations'),
+       url('/src/fonts/JetBrainsMono-2.304/fonts/webfonts/variable/JetBrainsMono.woff2') format('woff2-variations');
+  font-weight: 100 800;
+}
+@font-face {
+  font-family: 'JetBrainsMono Italic';
+  src: url('/src/fonts/JetBrainsMono-2.304/fonts/webfonts/variable/JetBrainsMono-Italic.woff2') format('woff2 supports variations'),
+       url('/src/fonts/JetBrainsMono-2.304/fonts/webfonts/variable/JetBrainsMono-Italic.woff2') format('woff2-variations');
+  font-weight: 100 800;
+}
+@font-face {
+  font-family: 'Onest';
+  src: url('/src/fonts/Onest/Onest-VariableFont_wght.woff2') format('woff2 supports variations'),
+       url('/src/fonts/Onest/Onest-VariableFont_wght.woff2') format('woff2-variations');
+  font-weight: 100 9000;
+}
+html {
+  font-size: 14px;
+}
+body {
+  font-family: 'Onest';
+  padding: 40px;
+  background-color: #E5E5EA;
+  color: #333;
+}
+.demo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  padding: 30px;
+  width: 100%;
+  max-width: 1000px;
+  height: fit-content;
+  margin: 0 auto;
+  background-color: #EEF1F6;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  font-family: 'JetBrainsMono';
+  font-weight: 1000;
+  letter-spacing: -1px;
+  color: #1D1D1F;
+  margin-bottom: 10px;
+}
+.demo-container p {
+  margin-bottom: 20px;
+}
+h2 {
+  font-family: 'JetBrainsMono';
+  font-weight: 1000;
+  letter-spacing: -.5px;
+  color: #1D1D1F;
+  border-bottom: 2px solid #ecf0f1;
+}
+hr {
+  width: 100%;
+  height: 2px;
+  background-color: #D1D1D6;
+  margin: 30px 0;
+  border: none;
+}
+.example {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  width: 100%;
+  height: fit-content;
+  gap: 10px;
+  padding: 20px;
+  margin-bottom: 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #E5E5EA;
+}
+.example-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #1D1D1F;
+}
+.example-box {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  width: 100%;
+}
+.example-subtitle {
+  height: fit-content;
+  font-size: 1em;
+  font-family: monospace;
+  font-weight: bold;
+  line-height: 22px;
+  margin-bottom: 10px;
+}
+.example-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 15px;
+  width: 100%;
+  height: fit-content;
+}
+.example-code-container {
+  position: relative;
+  width: 100%;
+  min-width: 290px;
+  height: fit-content;
+  font-family: 'JetBrainsMono';
+  font-weight: 350;
+  font-size: 1em;
+  line-height: 22px;
+  background-color: #1D1D1F;
+  color: rgb(178, 177, 171);
+  box-shadow: 0 0 0 2px rgba(255,255,255,.25) inset;
+  padding: 20px;
+  border-radius: 4px;
+  overflow-x: auto;
+  overflow: visible;
+}
+.example-code::selection, .example-code *::selection {
+  filter: invert(100%);
+}
+button.copy-to-clipboard {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+button.copy-to-clipboard:hover .tooltip {
+  font-size: .8em;
+  position: absolute;
+  bottom: -34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 4px;
+  background-color: #6C6C70;
+  color: white;
+}
+svg path {
+  fill: #6C6C70;
+}
+button.copy-to-clipboard:hover svg path {
+  fill: #8E8E93;
+}
+.picker-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 290px;
+}
+.color-display {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.controls button {
+  padding: 8px 12px;
+  margin: 5px 0;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.controls button:hover {
+  background-color: #2980b9;
+}
+.controls input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+@media (max-width: 800px) {
+  body {
+    padding: 0;
+  }
+  .demo-container {
+    border-radius: 0;
+    padding: 30px 14px;
+  }
+  .example-inner {
+    flex-direction: column;
+  }
+}
+
+.example-code .orange {
+  display: inline;
+  color: rgb(255, 143, 64);
+}
+.example-code .dark-orange {
+  display: inline;
+  color: rgb(242, 150, 104);
+}
+.example-code .light-orange {
+  display: inline;
+  color: rgb(250, 180, 84);
+}
+.example-code .yellow {
+  display: inline;
+  color: rgb(227, 197, 67);
+}
+.example-code .green {
+  display: inline;
+  color: rgb(171, 217, 75);
+}
+.example-code .purple {
+  display: inline;
+  color: rgb(218, 117, 214);
+}
+
+.example-code .grey {
+  display: inline;
+  color: rgb(104, 110, 119);
+}
+
+.italic {
+  font-family: 'JetBrainsMono Italic';
+}

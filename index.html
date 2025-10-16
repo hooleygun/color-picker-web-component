@@ -4,240 +4,547 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo ColorPicker</title>
-    <link rel="stylesheet" href="color-picker.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 40px;
-            background-color: #f0f2f5;
-            color: #333;
-        }
-        .demo-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-        h2 {
-            color: #34495e;
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 5px;
-        }
-        .example {
-            margin-bottom: 40px;
-            padding: 20px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            background-color: #fafafa;
-        }
-        .example-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-        .example-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        .example-code {
-            font-family: monospace;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 10px;
-            border-radius: 4px;
-            overflow-x: auto;
-        }
-        .picker-row {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 10px;
-        }
-        .color-display {
-            width: 50px;
-            height: 50px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .controls {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .controls button {
-            padding: 8px 12px;
-            margin: 5px 0;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .controls button:hover {
-            background-color: #2980b9;
-        }
-        .controls input {
-            padding: 6px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-    </style>
+    <link rel="stylesheet" href="/colorPicker/color-picker.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="demo-container">
         <h1>Demo: Color Picker Web Component</h1>
 
-        <p>Этот пример демонстрирует возможности библиотеки ColorPicker. Ниже приведены различные способы её использования.</p>
+        <p>Демонстрация возможностей библиотеки ColorPicker.</p>
 
         <!-- Пример 1: Базовый -->
         <div class="example">
-            <div class="example-header">
-                <div class="example-title">1. Базовый цветовой пикер</div>
-                <div class="example-code">new ColorPicker('#picker1', { initialColor: '#ff5500' })</div>
-            </div>
-            <div class="picker-row">
-                <div id="picker1"></div>
+            <div class="example-title">1. Базовый</div>
+            <div class="example-box">
+                <div class="example-subtitle">showTextInput: true</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'#ff5500'</div><div class="grey">,</div>&emsp;<div class="grey">//&emsp;hex,&emsp;rgb(),&emsp;rgba(),&emsp;hsl(),&emsp;hsla()</div><br>
+                            &nbsp;&nbsp;showTextInput:&emsp;<div class="purple">true</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="base-picker-1"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="example-subtitle">showTextInput: flase</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'#ff5500'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;showTextInput:&emsp;<div class="purple">false</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="base-picker-2"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Пример 2: С альфа-каналом -->
         <div class="example">
-            <div class="example-header">
-                <div class="example-title">2. С альфа-каналом</div>
-                <div class="example-code">new ColorPicker('#picker2', { initialColor: 'rgba(0, 128, 255, 0.7)', showAlpha: true })</div>
-            </div>
-            <div class="picker-row">
-                <div id="picker2"></div>
+            <div class="example-title">2. Подключение α-канала</div>
+            <div class="example-box">
+                <div class="example-subtitle">showAlpha: true</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'rgba(0,&emsp;128,&emsp;255,&emsp;0.25)'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;format:&emsp;<div class="green">'rgba'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;showAlpha:&emsp;<div class="purple">true</div>&emsp;<div class="grey italic">//&emsp;true&emsp;by&emsp;default</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="alpha-picker-1"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="example-subtitle">showAlpha: false</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'rgb(0,&emsp;128,&emsp;255)'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;format:&emsp;<div class="green">'rgb'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;showAlpha:&emsp;<div class="purple">false</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="alpha-picker-2"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Пример 3: Фиксированное позиционирование -->
+        <!-- Пример 3: Формат отображения RGBA -->
         <div class="example">
-            <div class="example-header">
-                <div class="example-title">3. Позиционирование: сверху по центру</div>
-                <div class="example-code">new ColorPicker('#picker3', { initialColor: '#7bff00', position: 'top-center' })</div>
-            </div>
-            <div class="picker-row">
-                <div id="picker3"></div>
+            <div class="example-title">3. Цветовые пространства</div>
+            <div class="example-box">
+                <div class="example-subtitle">format: 'hex'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'#ff2200'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;format:&emsp;<div class="green">'hex'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;showAlpha:&emsp;<div class="purple">false</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="color-spaces-picker-1"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="example-subtitle">format: 'rgb'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'hsl(120,&emsp;50%,&emsp;50%)'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;format:&emsp;<div class="green">'rgb'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;showAlpha:&emsp;<div class="purple">false</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="color-spaces-picker-2"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="example-subtitle">format: 'rgba'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'hsla(120,&emsp;50%,&emsp;50%,&emsp;0.8)'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;format:&emsp;<div class="green">'rgba'</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="color-spaces-picker-3"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="example-subtitle">format: 'hsl'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'rgb(120,&emsp;50,&emsp;50)'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;format:&emsp;<div class="green">'hsl'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;showAlpha:&emsp;<div class="purple">false</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>                            
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="color-spaces-picker-4"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="example-subtitle">format: 'hsla'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'rgba(120,&emsp;50,&emsp;50,&emsp;0.8)'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;format:&emsp;<div class="green">'hsla'</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="color-spaces-picker-5"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Пример 4: Формат отображения RGBA -->
+        <!-- Пример 4: Фиксированное позиционирование -->
         <div class="example">
-            <div class="example-header">
-                <div class="example-title">4. Формат отображения: RGBA</div>
-                <div class="example-code">new ColorPicker('#picker4', { initialColor: 'hsla(120, 50%, 50%, 0.8)', format: 'rgba' })</div>
-            </div>
-            <div class="picker-row">
-                <div id="picker4"></div>
+            <div class="example-title">4. Позиционирование</div>
+            <div class="example-box">
+                <div class="example-subtitle">position: 'top-left'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'#FF9D0A'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;position:&emsp;<div class="green">'top-left'</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="position-picker-1"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="example-subtitle">position: 'top-center'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'#F6980A'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;position:&emsp;<div class="green">'top-center'</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="position-picker-2"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="example-subtitle">position: 'top-right'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'#E08A09'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;position:&emsp;<div class="green">'top-right'</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="position-picker-3"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="example-subtitle">position: 'right'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'#C97C08'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;position:&emsp;<div class="green">'right'</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>                            
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="position-picker-4"></div>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <div class="example-subtitle">position: 'bottom-right'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'#B36E07'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;position:&emsp;<div class="green">'bottom-right'</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="position-picker-5"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="example-subtitle">position: 'bottom-center'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'#9C6006'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;position:&emsp;<div class="green">'bottom-center'</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="position-picker-6"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="example-subtitle">position: 'bottom-left'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'#855205'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;position:&emsp;<div class="green">'bottom-left'</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="position-picker-7"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="example-subtitle">position: 'left'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'#6E4404'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;position:&emsp;<div class="green">'left'</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="position-picker-8"></div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="example-subtitle">position: 'auto'</div>
+                <div class="example-inner">
+                    <div class="example-code-container">
+                        <div class="example-code">
+                            <div class="orange">const</div>&emsp;colorPicker&emsp;<div class="dark-orange">=&emsp;new</div>&emsp;<div class="light-orange">ColorPicker</div><div class="yellow">(</div><div class="green">'.color-picker'</div><div class="grey">,</div>&emsp;<div class="purple">{</div><br>
+                            &nbsp;&nbsp;initialColor:&emsp;<div class="green">'#583604'</div><div class="grey">,</div><br>
+                            &nbsp;&nbsp;position:&emsp;<div class="green">'auto'</div> <div class="grey italic">//&emsp;'auto'&emsp;by&emsp;default</div><br>
+                            <div class="purple">}</div><div class="yellow">)</div>
+                        </div>
+                        <button class="copy-to-clipboard">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 13.0325 0.00184339 13.0708 0.00488281 13.1025L0 13ZM9 14C9.03255 14 9.07079 13.9982 9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025C9.99816 13.0708 10 13.0325 10 13L9.99512 13.1025C9.94962 13.5778 9.57781 13.9496 9.10254 13.9951L9 14ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1C4 0.447716 4.44772 0 5 0H13C13.5523 0 14 0.447715 14 1V9C14 9.55228 13.5523 10 13 10H11.4004V5C11.4004 3.67452 10.3255 2.59961 9 2.59961H4V1ZM9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4C9.03255 4 9.07079 4.00184 9.10254 4.00488L9 4Z" fill="black"/>
+                                <path d="M1 4C0.447715 4 0 4.44772 0 5V13L0.00488281 13.1025C0.0469728 13.5422 0.373472 13.8927 0.798465 13.9797C0.863563 13.993 0.930965 14 1 14H9L9.10254 13.9951C9.57781 13.9496 9.94962 13.5778 9.99512 13.1025L10 13V10V5C10 4.91719 9.98993 4.83674 9.97096 4.75979C9.87132 4.35569 9.52603 4.048 9.10254 4.00488L9 4H4H1Z" fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="position-picker-9"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Пример 5: Управление из кода -->
         <div class="example">
-            <div class="example-header">
-                <div class="example-title">5. Управление из кода</div>
-                <div class="example-code">См. кнопки управления</div>
-            </div>
-            <div class="picker-row">
-                <div id="picker5"></div>
-                <div class="color-display" id="display5"></div>
-            </div>
-            <div class="controls">
-                <button onclick="setRandomColor()">Случайный цвет</button>
-                <button onclick="setColorToBlue()">Синий</button>
-                <button onclick="logCurrentColor()">Показать цвет в консоли</button>
-                <input type="text" id="customColorInput" placeholder="Введите цвет (HEX, RGB...)" />
-                <button onclick="setCustomColor()">Установить цвет</button>
-            </div>
-        </div>
-
-        <!-- Пример 6: Использование span -->
-        <div class="example">
-            <div class="example-header">
-                <div class="example-title">6. Использование другого тега (span)</div>
-                <div class="example-code">new ColorPicker('#picker6')</div>
-            </div>
-            <div class="picker-row">
-                <span id="picker6"></span>
+            <div class="example-title">5. Кастомное управление</div>
+            <div class="example-box">
+                <div class="example-inner">
+                    <div class="controls">
+                        <button onclick="setRandomColor()">Случайный цвет</button>
+                        <button onclick="setColorToRed()">Красный</button>
+                        <button onclick="logCurrentColor()">Показать цвет в консоли</button>
+                    </div>
+                    <div class="picker-row">
+                        <div id="picker5"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
     </div>
 
-    <script src="color-picker.js"></script>
+    <script src="/colorPicker/color-picker.js"></script>
+    <script src="/script.js"></script>
     <script>
         // Инициализация пикеров
-        const picker1 = new ColorPicker('#picker1', { initialColor: '#ff5500' });
-        const picker2 = new ColorPicker('#picker2', { initialColor: 'rgba(0, 128, 255, 0.7)', showAlpha: true });
-        const picker3 = new ColorPicker('#picker3', { initialColor: '#7bff00', position: 'top-center' });
-        const picker4 = new ColorPicker('#picker4', { initialColor: 'hsla(120, 50%, 50%, 0.8)', format: 'rgba' });
+        const basePicker1 = new ColorPicker('#base-picker-1', { initialColor: '#561BFF', showTextInput: true });
+        const basePicker2 = new ColorPicker('#base-picker-2', { initialColor: '#561BFF', showTextInput: false });
 
-        const picker5 = new ColorPicker('#picker5', { initialColor: '#ffffff' });
-        const display5 = document.getElementById('display5');
+        const alphaPicker1 = new ColorPicker('#alpha-picker-1', { initialColor: 'rgba(0, 122, 255, 0.5)', format: 'rgba', showAlpha: true });
+        const alphaPicker2 = new ColorPicker('#alpha-picker-2', { initialColor: 'rgb(0, 122, 255)', format: 'rgb', showAlpha: false });
 
-        // Обновляем цвет дисплея при изменении в picker5
-        // Note: Так как API удален, изменения в picker5 не вызывают внешних событий.
-        // Мы можем обновлять дисплей при открытии/закрытии или по кнопке.
-        // Для демонстрации добавим обновление при закрытии popup.
-        const originalClosePopup = picker5.closePopup;
-        picker5.closePopup = function() {
-            originalClosePopup.call(this);
-            updateDisplay5();
-        };
+        const colorSpacesPicker1 = new ColorPicker('#color-spaces-picker-1', { initialColor: '#10AD59', format: 'hex', showAlpha: false });
+        const colorSpacesPicker2 = new ColorPicker('#color-spaces-picker-2', { initialColor: 'hsl(148, 83%, 37%)', format: 'rgb', showAlpha: false });
+        const colorSpacesPicker3 = new ColorPicker('#color-spaces-picker-3', { initialColor: 'hsla(148, 83%, 37%, 0.5)', format: 'rgba' });
+        const colorSpacesPicker4 = new ColorPicker('#color-spaces-picker-4', { initialColor: 'rgb(16, 173, 89)', format: 'hsl', showAlpha: false });
+        const colorSpacesPicker5 = new ColorPicker('#color-spaces-picker-5', { initialColor: 'rgba(16, 173, 89, 0.5)', format: 'hsla' });
 
-        function updateDisplay5() {
-            if (display5 && picker5.color) {
-                 // Используем внутреннее состояние цвета
-                 const { r, g, b, a } = picker5.color;
-                 display5.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`;
-            }
-        }
-        // Инициальное обновление
-        updateDisplay5();
+        const positionPicker1 = new ColorPicker('#position-picker-1', { initialColor: '#FF9D0A', position: 'top-left' });
+        const positionPicker2 = new ColorPicker('#position-picker-2', { initialColor: '#F6980A', position: 'top-center' });
+        const positionPicker3 = new ColorPicker('#position-picker-3', { initialColor: '#E08A09', position: 'top-right' });
+        const positionPicker4 = new ColorPicker('#position-picker-4', { initialColor: '#C97C08', position: 'right' });
+        const positionPicker5 = new ColorPicker('#position-picker-5', { initialColor: '#B36E07', position: 'bottom-right' });
+        const positionPicker6 = new ColorPicker('#position-picker-6', { initialColor: '#9C6006', position: 'bottom-center' });
+        const positionPicker7 = new ColorPicker('#position-picker-7', { initialColor: '#855205', position: 'bottom-left' });
+        const positionPicker8 = new ColorPicker('#position-picker-8', { initialColor: '#6E4404', position: 'left' });
+        const positionPicker9 = new ColorPicker('#position-picker-9', { initialColor: '#583604', position: 'auto' });
 
-        const picker6 = new ColorPicker('#picker6', { initialColor: '#d2691e' });
+        const picker5 = new ColorPicker('#picker5', { initialColor: '#CE293F' });
 
         // Функции управления для Примера 5
         function setRandomColor() {
             const randomHex = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
             picker5.setColor(picker5.parseColor(randomHex));
-            updateDisplay5(); // Обновляем дисплей вручную
         }
 
-        function setColorToBlue() {
-            picker5.setColor(picker5.parseColor('#0000ff'));
-            updateDisplay5();
+        function setColorToRed() {
+            picker5.setColor(picker5.parseColor('#CE293F'));
         }
 
         function logCurrentColor() {
             console.log('Текущий цвет picker5 (внутреннее состояние):', picker5.color);
             console.log('Текущий цвет picker5 (отображаемый формат):', picker5.textInput.value);
-        }
-
-        function setCustomColor() {
-            const input = document.getElementById('customColorInput');
-            const colorStr = input.value.trim();
-            if (colorStr) {
-                const parsed = picker5.parseColor(colorStr);
-                if (parsed) {
-                    picker5.setColor(parsed);
-                    updateDisplay5();
-                    input.value = ''; // Очищаем поле
-                } else {
-                    alert('Неверный формат цвета!');
-                }
-            }
         }
 
     </script>

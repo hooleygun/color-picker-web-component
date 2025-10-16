@@ -20,10 +20,9 @@ var ColorPicker = (function () {
       this.options = {
         initialColor: options.initialColor || '#3388ff',
         showAlpha: options.showAlpha !== undefined ? options.showAlpha : true,
-        // Новое: позиционирование
         position: options.position || 'auto', // 'auto', 'top-left', 'bottom-center' и т.д.
-        // Новое: формат отображения в текстовом поле
         format: options.format || 'auto', // 'auto', 'hex', 'rgb', 'rgba', 'hsl', 'hsla'
+        showTextInput: options.showTextInput !== undefined ? options.showTextInput : true,
       };
 
       this.color = this.parseColor(this.options.initialColor) || this.hsvToRgb(200 / 360, 1, 1, 1);
@@ -60,6 +59,10 @@ var ColorPicker = (function () {
       this.textInput.type = 'text';
       this.textInput.className = 'color-picker__text-input';
       this.textInput.placeholder = 'HEX, RGB, HSL...';
+
+      if (!this.options.showTextInput) {
+        this.textInput.style.display = 'none';
+      }
 
       this.nativeColorInput = document.createElement('input');
       this.nativeColorInput.type = 'color';
@@ -451,7 +454,7 @@ var ColorPicker = (function () {
 
       switch (position) {
         case 'top-left':
-          x = triggerRect.left;
+          x = triggerRect.right - popupRect.width;
           y = triggerRect.top - popupRect.height - margin;
           break;
         case 'top-center':
@@ -459,11 +462,11 @@ var ColorPicker = (function () {
           y = triggerRect.top - popupRect.height - margin;
           break;
         case 'top-right':
-          x = triggerRect.right - popupRect.width;
+          x = triggerRect.left;
           y = triggerRect.top - popupRect.height - margin;
           break;
         case 'bottom-left':
-          x = triggerRect.left;
+          x = triggerRect.right - popupRect.width;
           y = triggerRect.bottom + margin;
           break;
         case 'bottom-center':
@@ -471,7 +474,7 @@ var ColorPicker = (function () {
           y = triggerRect.bottom + margin;
           break;
         case 'bottom-right':
-          x = triggerRect.right - popupRect.width;
+          x = triggerRect.left;
           y = triggerRect.bottom + margin;
           break;
         case 'right':

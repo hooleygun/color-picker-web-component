@@ -28,7 +28,7 @@ body {
   font-family: 'Onest';
   padding: 40px;
   background-color: #E5E5EA;
-  color: #333;
+  color: #1D1D1F;
 }
 .demo-container {
   display: flex;
@@ -159,10 +159,10 @@ button.copy-to-clipboard:hover .tooltip {
   background-color: #6C6C70;
   color: white;
 }
-svg path {
+button svg path {
   fill: #6C6C70;
 }
-button.copy-to-clipboard:hover svg path {
+button:hover svg path {
   fill: #8E8E93;
 }
 .picker-row {
@@ -182,20 +182,35 @@ button.copy-to-clipboard:hover svg path {
 }
 .controls {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
 }
+button.icon-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+}
+button.icon-btn svg path {
+  fill: #EEF1F6;
+}
 .controls button {
+  height: 36px;
   padding: 8px 12px;
   margin: 5px 0;
-  background-color: #3498db;
-  color: white;
+  background-color: #1D1D1F;
+  color: #EEF1F6;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
 }
 .controls button:hover {
-  background-color: #2980b9;
+  box-shadow: 0 14px 10px -8px rgba(29, 29, 31, .35);
+}
+.controls button:active {
+  box-shadow: none;
+  transform: scale(.98);
 }
 .controls input {
   padding: 6px;

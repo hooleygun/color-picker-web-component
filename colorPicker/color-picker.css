@@ -12,7 +12,6 @@
   padding: 6px 8px;
   border: 2px solid #D1D1D6;
   border-radius: 10px;
-  /* font-family: monospace; */
   width: 200px;
 }
 .color-picker__text-input:focus {

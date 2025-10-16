@@ -24,7 +24,6 @@ copyBtns.forEach(btn => {
     }
     cleanedText = cleanedText.replaceAll('&nbsp;', " ");
     navigator.clipboard.writeText(cleanedText);
-    console.log('You copied: ', cleanedText)
     event.currentTarget.querySelector('.tooltip').textContent = 'Copied';
     
   })

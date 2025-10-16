@@ -3,14 +3,14 @@ const copyBtns = document.querySelectorAll('.copy-to-clipboard');
 copyBtns.forEach(btn => {
   const tooltip = document.createElement('div');
   tooltip.className = 'tooltip';
-  tooltip.textContent = 'Копировать';
+  tooltip.textContent = 'Copy';
 
   btn.addEventListener('mouseover', (event) => {
     event.currentTarget.appendChild(tooltip);
   })
 
   btn.addEventListener('mouseleave', (event) => {
-    event.currentTarget.querySelector('.tooltip').textContent = 'Копировать';
+    event.currentTarget.querySelector('.tooltip').textContent = 'Copy';
     event.currentTarget.querySelector('.tooltip').remove();
   })
 
@@ -25,7 +25,7 @@ copyBtns.forEach(btn => {
     cleanedText = cleanedText.replaceAll('&nbsp;', " ");
     navigator.clipboard.writeText(cleanedText);
     console.log('You copied: ', cleanedText)
-    event.currentTarget.querySelector('.tooltip').textContent = 'Скопировано';
+    event.currentTarget.querySelector('.tooltip').textContent = 'Copied';
     
   })
 });

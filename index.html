@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +12,10 @@
     <div class="demo-container">
         <h1>Demo: Color Picker Web Component</h1>
 
-        <p>Демонстрация возможностей библиотеки ColorPicker.</p>
+        <p>Demonstration of the capabilities of the ColorPicker library.</p>
 
-        <!-- Пример 1: Базовый -->
         <div class="example">
-            <div class="example-title">1. Базовый</div>
+            <div class="example-title">1. Basic setup</div>
             <div class="example-box">
                 <div class="example-subtitle">showTextInput: true</div>
                 <div class="example-inner">
@@ -68,9 +67,8 @@
             </div>
         </div>
 
-        <!-- Пример 2: С альфа-каналом -->
         <div class="example">
-            <div class="example-title">2. Подключение α-канала</div>
+            <div class="example-title">2. α-channel connection</div>
             <div class="example-box">
                 <div class="example-subtitle">showAlpha: true</div>
                 <div class="example-inner">
@@ -124,9 +122,8 @@
             </div>
         </div>
 
-        <!-- Пример 3: Формат отображения RGBA -->
         <div class="example">
-            <div class="example-title">3. Цветовые пространства</div>
+            <div class="example-title">3. Color spaces</div>
             <div class="example-box">
                 <div class="example-subtitle">format: 'hex'</div>
                 <div class="example-inner">
@@ -256,9 +253,8 @@
             </div>
         </div>
 
-        <!-- Пример 4: Фиксированное позиционирование -->
         <div class="example">
-            <div class="example-title">4. Позиционирование</div>
+            <div class="example-title">4. Positioning</div>
             <div class="example-box">
                 <div class="example-subtitle">position: 'top-left'</div>
                 <div class="example-inner">
@@ -485,9 +481,8 @@
             </div>
         </div>
 
-        <!-- Пример 5: Управление из кода -->
         <div class="example">
-            <div class="example-title">5. Кастомное управление</div>
+            <div class="example-title">5. Custom controls</div>
             <div class="example-box">
                 <div class="example-inner" style="flex-direction: column;">
                     <div class="picker-row">
@@ -527,7 +522,7 @@
     <script src="/colorPicker/color-picker.js"></script>
     <script src="/script.js"></script>
     <script>
-        // Инициализация пикеров
+        // Pickert init
         const basePicker1 = new ColorPicker('#base-picker-1', { initialColor: '#561BFF', showTextInput: true });
         const basePicker2 = new ColorPicker('#base-picker-2', { initialColor: '#561BFF', showTextInput: false });
 
@@ -552,7 +547,7 @@
 
         const picker5 = new ColorPicker('#picker5', { initialColor: '#CE293F' });
 
-        // Функции управления для Примера 5
+        // Custom controls functions
         function setRandomColor() {
             const randomHex = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
             picker5.setColor(picker5.parseColor(randomHex));

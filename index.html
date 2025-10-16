@@ -486,7 +486,7 @@
             <div class="example-box">
                 <div class="example-inner" style="flex-direction: column;">
                     <div class="picker-row">
-                        <div id="picker5"></div>
+                        <div id="custom-controls-picker"></div>
                     </div>
                     <div class="controls">
                         <button class="icon-btn" onclick="setRandomColor()">
@@ -545,21 +545,21 @@
         const positionPicker8 = new ColorPicker('#position-picker-8', { initialColor: '#6E4404', position: 'left' });
         const positionPicker9 = new ColorPicker('#position-picker-9', { initialColor: '#583604', position: 'auto' });
 
-        const picker5 = new ColorPicker('#picker5', { initialColor: '#CE293F' });
+        const customControlsPicker = new ColorPicker('#custom-controls-picker', { initialColor: '#CE293F' });
 
         // Custom controls functions
         function setRandomColor() {
             const randomHex = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
-            picker5.setColor(picker5.parseColor(randomHex));
+            customControlsPicker.setColor(customControlsPicker.parseColor(randomHex));
         }
 
         function setColorToRed() {
-            picker5.setColor(picker5.parseColor('#CE293F'));
+            customControlsPicker.setColor(customControlsPicker.parseColor('#CE293F'));
         }
 
         function logCurrentColor() {
-            console.log('Текущий цвет picker5 (внутреннее состояние):', picker5.color);
-            console.log('Текущий цвет picker5 (отображаемый формат):', picker5.textInput.value);
+            console.log('Current color of swatch (internal state):', customControlsPicker.color);
+            console.log('Current color of swatch (display format):', customControlsPicker.textInput.value);
         }
 
     </script>

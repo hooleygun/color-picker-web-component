@@ -14,22 +14,22 @@
 .color-picker input[type=text] {
   height: 36px;
   padding: 6px 12px;
-  border: 2px solid #d1d1d6;
+  border: 1px solid #d1d1d6;
   border-radius: 10px;
   width: 100%;
   min-width: 180px
 }
 
 .color-picker .swatch {
-  width: 34px;
-  min-width: 34px;
-  max-width: 34px;
-  height: 34px;
-  min-height: 34px;
-  max-height: 34px;
+  width: 36px;
+  min-width: 36px;
+  max-width: 36px;
+  height: 36px;
+  min-height: 36px;
+  max-height: 36px;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 0 0 2px hsla(0, 0%, 100%, .25) inset
+  box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .25) inset
 }
 
 .color-picker .popover {

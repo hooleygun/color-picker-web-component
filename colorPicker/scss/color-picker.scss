@@ -1,0 +1,119 @@
+.color-picker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  input[type="color"] {
+    display: none;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  input[type="text"] {
+    height: 36px;
+    padding: 6px 12px;
+    border: 2px solid #D1D1D6;
+    border-radius: 10px;
+    width: 100%;
+    min-width: 180px;
+  }
+
+  .swatch {
+    width: 34px;
+    min-width: 34px;
+    max-width: 34px;
+    height: 34px;
+    min-height: 34px;
+    max-height: 34px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 0 2px rgba(255,255,255,.25) inset;
+  }
+
+  .popover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid rgba(29,29,31,0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(29,29,31,0.15);
+    padding: 12px;
+    z-index: 1000;
+
+    .saturation {
+      width: 180px;
+      height: 120px;
+      background: linear-gradient(to right, white, rgba(255,255,255,0)),
+                  linear-gradient(to top, black, rgba(0,0,0,0));
+      position: relative;
+      cursor: crosshair;
+      border-radius: 4px;
+      overflow: hidden;
+
+      .cursor {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border: 2px solid white;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px rgba(29,29,31,0.3);
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+    }
+
+    .hue {
+      width: 180px;
+      height: 16px;
+      background: linear-gradient(to right,
+        #ff0000, #ffff00, #00ff00, #00ffff,
+        #0000ff, #ff00ff, #ff0000);
+      margin-top: 12px;
+      border-radius: 8px;
+      position: relative;
+      cursor: pointer;
+
+      .cursor {
+        position: absolute;
+        top: 50%;
+        width: 10px;
+        height: 20px;
+        background: white;
+        border: 2px solid #1D1D1F;
+        border-radius: 2px;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+    }
+
+    .alpha {
+      width: 180px;
+      height: 16px;
+      margin-top: 12px;
+      position: relative;
+      overflow: visible;
+      cursor: pointer;
+
+      .bg {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        background: repeating-conic-gradient(#ccc 0% 25%, transparent 0% 50%) 0 0 / 16px 16px;
+      }
+
+      .cursor {
+        position: absolute;
+        top: 50%;
+        width: 10px;
+        height: 20px;
+        background: white;
+        border: 2px solid #1D1D1F;
+        border-radius: 2px;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+    }
+  }
+}

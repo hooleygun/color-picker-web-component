@@ -60,7 +60,7 @@ var ColorPicker = (function () {
       // Create the text input for manual color entry
       this.textInput = document.createElement('input');
       this.textInput.type = 'text';
-      this.textInput.className = 'color-picker__text-input';
+      this.textInput.className = 'text-input';
       this.textInput.placeholder = 'HEX, RGB, HSL...';
       // Hide the text input if the option is set to false
       if (!this.options.showTextInput) {
@@ -70,44 +70,40 @@ var ColorPicker = (function () {
       // Create the hidden native color input (for form compatibility)
       this.nativeColorInput = document.createElement('input');
       this.nativeColorInput.type = 'color';
-      this.nativeColorInput.className = 'color-picker__native-input';
-      // Visually hide but keep in DOM
-      this.nativeColorInput.style.position = 'absolute';
-      this.nativeColorInput.style.opacity = '0';
-      this.nativeColorInput.style.pointerEvents = 'none';
+      this.nativeColorInput.className = 'native-input';
 
       // Create the visual trigger button
       this.trigger = document.createElement('div');
-      this.trigger.className = 'color-picker__trigger';
+      this.trigger.className = 'swatch';
 
       // Create the popup element (initially hidden)
       this.popup = document.createElement('div');
-      this.popup.className = 'color-picker__popup';
+      this.popup.className = 'popover';
       // Build the popup content with sliders
       this.popup.innerHTML = `
-        <div class="color-picker__saturation">
-          <div class="color-picker__cursor"></div>
+        <div class="saturation">
+          <div class="cursor"></div>
         </div>
-        <div class="color-picker__hue-slider">
-          <div class="color-picker__hue-cursor"></div>
+        <div class="hue">
+          <div class="cursor"></div>
         </div>
         ${this.options.showAlpha ? `
-        <div class="color-picker__alpha-slider">
-          <div class="color-picker__alpha-bg"></div>
-          <div class="color-picker__alpha-cursor"></div>
+        <div class="alpha">
+          <div class="bg"></div>
+          <div class="cursor"></div>
         </div>` : ''}
       `;
       this.popup.style.display = 'none'; // Initially hidden
 
       // Store references to important child elements for later use
-      this.saturationEl = this.popup.querySelector('.color-picker__saturation');
-      this.cursorEl = this.popup.querySelector('.color-picker__cursor');
-      this.hueSlider = this.popup.querySelector('.color-picker__hue-slider');
-      this.hueCursor = this.popup.querySelector('.color-picker__hue-cursor');
+      this.saturationEl = this.popup.querySelector('.saturation');
+      this.cursorEl = this.saturationEl.querySelector('.cursor');
+      this.hueSlider = this.popup.querySelector('.hue');
+      this.hueCursor = this.hueSlider.querySelector('.cursor');
 
       if (this.options.showAlpha) {
-        this.alphaSlider = this.popup.querySelector('.color-picker__alpha-slider');
-        this.alphaCursor = this.popup.querySelector('.color-picker__alpha-cursor');
+        this.alphaSlider = this.popup.querySelector('.alpha');
+        this.alphaCursor = this.alphaSlider.querySelector('.cursor');
       }
 
       // Append elements to the container
@@ -409,7 +405,7 @@ var ColorPicker = (function () {
           this.alphaCursor.style.left = `${x}px`;
 
           // Update the alpha slider's background gradient based on current RGB
-          this.alphaSlider.querySelector('.color-picker__alpha-bg').style.background = `
+          this.alphaSlider.querySelector('.bg').style.background = `
             linear-gradient(to right, rgba(${r}, ${g}, ${b}, 0), rgba(${r}, ${g}, ${b}, ${roundedA})),
             repeating-conic-gradient(#ccc 0% 25%, transparent 0% 50%) 0 0 / 16px 16px
           `;
